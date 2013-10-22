@@ -72,7 +72,7 @@
 </html>
 ```
 
-## HTML5 Template siple
+## HTML5 Template simple
 
 ```html
 <!DOCTYPE html>
