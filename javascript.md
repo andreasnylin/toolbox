@@ -94,12 +94,12 @@ document.write( /^[0-9\s]+$/.test('070 123 456') );
  
 // Replace urls with hyperlinks
 var exp = /(\b(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)[-A-Z0-9+&@#/%=~_|$?!:,.]*[A-Z0-9+&@#/%=~_|$])/ig;
-var text = 'A url http://www.dn.se in a text';
-text = text.replace(exp, '&lt;a href="$1" target="_blank"&gt;$1&lt;/a&gt;');
+var text = 'A url http://www.github.com in a text';
+text = text.replace(exp, '<a href="$1" target="_blank">$1</a>');
  
 // Remove HTML tags
-var regex = /(&lt;([^>]+)&gt;)/ig;
-var html = '&lt;p&gt;Test&lt;/p&gt;';
+var regex = /(<([^>]+)>)/ig;
+var html = '<p>Test</p>';
 document.write(html.replace(regex, ''));
 ```
 
@@ -108,5 +108,34 @@ document.write(html.replace(regex, ''));
 ```javascript
 // Split a string on multiple characters. This will split on minus, periods and spaces.
 'this-is a.string'.split(/[-\.\s]/);
+```
+
+## Capitalize first letter in sentance
+
+```javascript
+var t='text to capitalize. another sentance.';
+t[0].toUpperCase() + t.slice(1).replace(/([.!?]\s*\w)/gi, function(c){ return c.toUpperCase() });
+```
+
+## Add remove class from DOM element
+
+```javascript
+function addClassToElement(element, className) {
+	var classes = element.className.split(' ');
+	if(classes.indexOf(className) === -1) {
+		classes.push(className);
+		element.className = classes.join(' ');
+	}
+}
+
+function removeClassFromElement(element, className) {
+	var classes = element.className.split(' '),
+		classNameIndex = classes.indexOf(className);
+	
+	if(classNameIndex != -1) {
+		classes.splice(classNameIndex, 1);
+		element.className = classes.join(' ');
+	}
+}
 ```
 
