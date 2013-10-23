@@ -1,10 +1,11 @@
 # JavaScript
 
-## Replace all occurrence of a string
+## Replace all occurrences of a string
 
 ```javascript
-// Replace all occurrence of monkey
+// Replace all occurrences of monkey
 'monkeys monkeys monkeys'.replace(/monkey/g, 'sloth');
+
 // Replaces . with ,
 '1.5 3.4 6.7'.replace(/\./g, ',');
 ```
