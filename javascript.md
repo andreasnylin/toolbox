@@ -5,9 +5,11 @@
 ```javascript
 // Replace all occurrences of monkey
 'monkeys monkeys monkeys'.replace(/monkey/g, 'sloth');
+// => result: 'sloths sloths sloths'
 
 // Replaces . with ,
 '1.5 3.4 6.7'.replace(/\./g, ',');
+// => result: '1,5 3,4 6,7'
 ```
 
 ## Split a string on multiple characters
