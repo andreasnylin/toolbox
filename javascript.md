@@ -1,9 +1,18 @@
 # JavaScript
 
+## Replace all occurrence of a string
+
+```javascript
+// Replace all occurrence of monkey
+'monkeys monkeys monkeys'.replace(/monkey/g, 'sloth');
+// Replaces . with ,
+'1.5 3.4 6.7'.replace(/\./g, ',');
+```
+
 ## Split a string on multiple characters
 
 ```javascript
-// Split a string on multiple characters. This will split on minus, periods and spaces.</span>
+// Split a string on multiple characters. This will split on minus, periods and spaces.
 'this-is a.string'.split(/[-\.\s]/);
 ```
 
@@ -23,7 +32,7 @@ function generateRandomNumbers(count, from, to) {
     return nums;
 }
 
-// usage: generateRandomNumbers( how many numbers to generate, from value, to value )</span>
+// usage: generateRandomNumbers( how many numbers to generate, from value, to value )
 generateRandomNumbers(10, 100, 200);
 
 ```
@@ -101,13 +110,6 @@ text = text.replace(exp, '<a href="$1" target="_blank">$1</a>');
 var regex = /(<([^>]+)>)/ig;
 var html = '<p>Test</p>';
 document.write(html.replace(regex, ''));
-```
-
-## Split string on multiple characters
-
-```javascript
-// Split a string on multiple characters. This will split on minus, periods and spaces.
-'this-is a.string'.split(/[-\.\s]/);
 ```
 
 ## Capitalize first letter in sentance
