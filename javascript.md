@@ -56,6 +56,13 @@ var CookieHelper = {
 'this-is a.string'.split(/[-\.\s]/);
 ```
 
+## Repeat string
+
+```javascript
+Array(5).join('x');
+// => result: xxxxx
+```
+
 ## Generate random number function
 
 ```javascript
