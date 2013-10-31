@@ -3,6 +3,7 @@
 ## Compare two objects
 
 ```javascript
+// Simple compare objects in JavaScript. This method works in moste cases
 function compareObjs(a, b) {
 	var equal = true;
 	for(var key in a) {
