@@ -36,6 +36,11 @@ compareObjs(obj1, obj2); // => false
 var obj3 = { x: 1, y: 2 };
 var obj4 = { x: 1, y: 2 };
 compareObjs(obj3, obj4); // => true
+
+var obj5 = { p: { x: 1, y: 1 }, b: 1 }
+var obj6 = { p: { x: 1, y: 1 }, b: 1 }
+
+compareObjs(obj5, obj6); // => true
 ```
 
 ## Cookie helper
