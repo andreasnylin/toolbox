@@ -1,5 +1,36 @@
 # JavaScript
 
+## Compare two objects
+
+```javascript
+function compareObjs(a, b) {
+	var equal = true;
+	for(var key in a) {
+		if(a.hasOwnProperty(key) && b.hasOwnProperty(key)) {
+			if(a[key] !== b[key]) {
+				equal = false;
+				break;
+			}
+		}
+		else {
+			equal = false;
+			break;
+		}
+	}
+
+	return equal;
+}
+
+// Usage
+var obj1 = { a: 3, b: 'x' };
+var obj2 = { a: 3, c: 'y' };
+compareObjs(obj1, obj2); // => false
+
+var obj3 = { x: 1, y: 2 };
+var obj4 = { x: 1, y: 2 };
+compareObjs(obj3, obj4); // => true
+```
+
 ## Cookie helper
 
 ```javascript
