@@ -8,7 +8,10 @@ function compareObjs(a, b) {
 	var equal = true;
 	for(var key in a) {
 		if(a.hasOwnProperty(key) && b.hasOwnProperty(key)) {
-			if(typeof a[key] === 'object' && typeof b[key] === 'object') {
+			if(typeof a[key] === 'function' && typeof b[key] === 'function') {
+				continue;
+			}
+			else if(typeof a[key] === 'object' && typeof b[key] === 'object') {
 				if(!compareObjs(a[key], b[key])) {
 					equal = false;
 					break;
