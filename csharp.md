@@ -23,3 +23,15 @@ public static bool ValidateEmailAddress(string email)
 ```cs
 Enum.GetName(typeof(MyEnumType), MyEnumType.SomeValue);
 ```
+
+## Check if debug is enabled
+
+```cs
+HttpContext.Current.IsDebuggingEnabled
+
+#if DEBUG
+
+#else
+
+#endif
+```
