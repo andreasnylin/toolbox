@@ -35,3 +35,10 @@ HttpContext.Current.IsDebuggingEnabled
 
 #endif
 ```
+
+## Get culture name
+
+```cs
+System.Threading.Thread.CurrentThread.CurrentCulture.Name // => "en-US"
+System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName // => "en"
+```
