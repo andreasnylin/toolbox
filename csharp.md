@@ -24,6 +24,25 @@ public static bool ValidateEmailAddress(string email)
 Enum.GetName(typeof(MyEnumType), MyEnumType.SomeValue);
 ```
 
+## Get int value of enum
+
+```cs
+var blue = Colors.Blue;
+var blueInt = (int)blue;
+```
+
+## Parse an enum
+
+```cs
+(MyEnum)Enum.Parse(typeof(MyEnum), myEnum.Value.ToString())
+```
+
+## Get all values for a enum
+
+```cs
+Enum.GetValues(typeof(MyEnum))
+```
+
 ## Check if debug is enabled
 
 ```cs
