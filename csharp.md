@@ -61,3 +61,22 @@ HttpContext.Current.IsDebuggingEnabled
 System.Threading.Thread.CurrentThread.CurrentCulture.Name // => "en-US"
 System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName // => "en"
 ```
+
+## Get querystring parameters from URL
+```cs
+var url = request.Url;
+var query = HttpUtility.ParseQueryString(url.Query)
+```
+
+## Create a query string from NameValueCollection
+```cs
+private string BuildQueryString(NameValueCollection nvc)
+{
+    var array = (from key in nvc.AllKeys
+                 from value in nvc.GetValues(key)
+                 select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value)))
+        .ToArray();
+    return "?" + string.Join("&", array);
+}
+```
+
