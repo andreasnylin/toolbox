@@ -62,10 +62,9 @@ System.Threading.Thread.CurrentThread.CurrentCulture.Name // => "en-US"
 System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName // => "en"
 ```
 
-## Get querystring parameters from URL
+## Get querystring parameters from a URL
 ```cs
-var url = request.Url;
-var query = HttpUtility.ParseQueryString(url.Query)
+var query = HttpUtility.ParseQueryString(someUri.Query)
 ```
 
 ## Create a query string from NameValueCollection
