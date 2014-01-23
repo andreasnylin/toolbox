@@ -79,3 +79,8 @@ private string BuildQueryString(NameValueCollection nvc)
 }
 ```
 
+## Get the domain including protocol and port for the current page
+```cs
+HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+```
+
