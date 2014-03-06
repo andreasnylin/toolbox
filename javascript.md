@@ -281,3 +281,8 @@ var ObjectStore = {
 	}
 };
 ```
+
+## Get number of days in a month
+```javascript
+new Date(year, month, 0).getDate();
+```
