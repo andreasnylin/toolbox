@@ -331,8 +331,8 @@ var QueryString = {
 		return queryString;
 	}
 };
-/*
+
 QueryString.parse('http://www.domain.com?a=1&b=2&c=3'); // => {a: '1', b: '2', c: '3'}
 QueryString.build({a: '1', b: '2', c: '3'}) // => '?a=1&b=2&c=3'
-*/
+
 ```
