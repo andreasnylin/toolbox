@@ -284,5 +284,55 @@ var ObjectStore = {
 
 ## Get number of days in a month
 ```javascript
+var year = 2014,
+	month = 1; // jan, start at 1 not 0
 new Date(year, month, 0).getDate();
+// => 31
+```
+
+## Parse and build querystring
+```javascript
+var QueryString = {
+	parse: function (url) {
+		var qo = {};
+
+		if (url.indexOf('?') >= 0) {
+			url.replace(
+				new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+				function ($0, $1, $2, $3) {
+					if ($3) { qo[$1] = $3; }
+				}
+			);
+		}
+
+		return qo;
+
+	},
+	build: function (query) {
+		var i = 0,
+			first = true,
+			queryString = '';
+
+		for (var key in query) {
+			var value = query[key];
+
+			if (value) {
+				if (first) {
+					separator = '?';
+					first = false;
+				} else {
+					separator = '&';
+				}
+
+				queryString += separator + key + '=' + query[key];
+			}
+		}
+
+		return queryString;
+	}
+};
+/*
+QueryString.parse('http://www.domain.com?a=1&b=2&c=3'); // => {a: '1', b: '2', c: '3'}
+QueryString.build({a: '1', b: '2', c: '3'}) // => '?a=1&b=2&c=3'
+*/
 ```
