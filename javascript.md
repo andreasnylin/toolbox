@@ -309,22 +309,18 @@ var QueryString = {
 
 	},
 	build: function (query) {
-		var i = 0,
-			first = true,
-			queryString = '';
+		var queryString = '',
+			separator = '?';
 
 		for (var key in query) {
 			var value = query[key];
 
 			if (value) {
-				if (first) {
-					separator = '?';
-					first = false;
-				} else {
+				queryString += separator + key + '=' + query[key];
+
+				if(separator === '?') {
 					separator = '&';
 				}
-
-				queryString += separator + key + '=' + query[key];
 			}
 		}
 
