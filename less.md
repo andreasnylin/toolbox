@@ -104,9 +104,9 @@
 }
 
 .center() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .inline-block() {
@@ -115,7 +115,7 @@
 	*zoom: 1;
 }
 
-.panel(@background: @pink, @padding: @panelPadding, @margin: @panelMargin) {
+.panel(@background: #ccc, @padding: 10px, @margin: 0 0 1em) {
 	background: @background;
 	padding: @padding;
 	margin: @margin;
@@ -127,20 +127,10 @@
 	padding: @padding;
 }
 
-.reset-button(@color: @white, @background: transparent, @border: none) {
+.reset-button(@color: #000, @background: transparent, @border: none) {
 	color: @color;
 	background: @background;
 	border: @border;
-}
-
-.stacked-icon-circle(@color) {
-	color: @color;
-	font-size: @fontSizeStackedIconCircle;
-}
-
-.stacked-icon(@color) {
-	color: @color;
-	font-size: @fontSizeStackedIcon;
 }
 
 .word-break(@break: break-all) {
@@ -150,7 +140,7 @@
 
 .hyphens(@hyphens: auto) {
 	-ms-word-break: break-all;
-     word-break: break-all;
+     	word-break: break-all;
 	-webkit-hyphens: @hyphens;
 	-moz-hyphens: @hyphens;
 	-ms-hyphens: @hyphens;
