@@ -316,7 +316,7 @@ var QueryString = {
 			var value = query[key];
 
 			if (value) {
-				queryString += separator + key + '=' + query[key];
+				queryString += separator + key + '=' + value;
 
 				if(separator === '?') {
 					separator = '&';
