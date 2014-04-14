@@ -290,6 +290,21 @@ new Date(year, month, 0).getDate();
 // => 31
 ```
 
+## Sort array of dates
+```javascript
+var arr = [ 
+	{ date: new Date(2014, 5, 5, 10, 00) },
+	{ date: new Date(2014, 5, 5, 5, 00) },
+	{ date: new Date(2013, 3, 3, 10, 00) },
+	{ date: new Date(2014, 5, 5, 15, 00) },
+	{ date: new Date(2014, 10, 10, 10, 00) } 
+];
+
+arr.sort(function(a, b) {
+	return a.date - b.date;
+});
+```
+
 ## Parse and build querystring
 ```javascript
 var QueryString = {
