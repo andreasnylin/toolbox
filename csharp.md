@@ -84,3 +84,40 @@ private string BuildQueryString(NameValueCollection nvc)
 HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 ```
 
+## LINQ Split list into columns
+```cs
+// Credit: http://stackoverflow.com/a/13502615
+public static class Extensions
+{
+    public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> source, int parts)
+    {
+        var list = new List<T>(source);
+        int defaultSize = (int)((double)list.Count / (double)parts);
+        int offset = list.Count % parts;
+        int position = 0;
+
+        for (int i = 0; i < parts; i++)
+        {
+            int size = defaultSize;
+            if (i < offset)
+                size++; // Just add one to the size (it's enough).
+
+            yield return list.GetRange(position, size);
+
+            // Set the new position after creating a part list, so that it always start with position zero on the first yield return above.
+            position += size;
+        }
+    }
+}
+
+int[] b = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+b.split(4);
+
+/*
+| item 1 | item 4 | item 7 | item 9 |
+| item 2 | item 5 | item 8 | item 10|
+| item 3 | item 6 |        |        |
+*/
+
+```
+
