@@ -121,3 +121,8 @@ b.split(4);
 
 ```
 
+## Get a list of years from x to current year
+```cs
+var startYear = 2000;
+Enumerable.Range(startYear, DateTime.Now.Year - startYear + 1).Reverse();
+```
