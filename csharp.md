@@ -62,9 +62,37 @@ System.Threading.Thread.CurrentThread.CurrentCulture.Name // => "en-US"
 System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName // => "en"
 ```
 
+## Get file extension form URL
+
+```cs
+public static string GetUrlExtension(string url, bool includePeriod = true)
+{
+	if (url.IndexOf("?") != -1)
+	{
+		url = url.Substring(0, url.IndexOf("?"));
+	}
+
+	if (url.IndexOf("#") != -1)
+	{
+		url = url.Substring(0, url.IndexOf("#"));
+	}
+
+	var ext = Path.GetExtension(url);
+
+	if (includePeriod)
+	{
+		return ext;
+	}
+	else
+	{
+		return ext.Substring(1);
+	}
+}
+```
+
 ## Get querystring parameters from a URL
 ```cs
-var query = HttpUtility.ParseQueryString(someUri.Query)
+var query = HttpUtility.ParseQueryString(someUri.Query);
 ```
 
 ## Create a query string from NameValueCollection
