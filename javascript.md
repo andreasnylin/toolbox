@@ -338,42 +338,44 @@ ary.sort(natcmp)
 ## Parse and build querystring
 ```javascript
 var QueryString = {
-	parse: function (url) {
-		var qo = {};
+    parse: function (url) {
+        var qo = {};
 
-		if (url.indexOf('?') >= 0) {
-			url.replace(
-				new RegExp("([^?=&]+)(=([^&]*))?", "g"),
-				function ($0, $1, $2, $3) {
-					if ($3) { qo[$1] = $3; }
-				}
-			);
-		}
+        if (url.indexOf('?') >= 0) {
+            url.replace(
+                new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                function ($0, $1, $2, $3) {
+                    if ($3) { qo[$1] = $3; }
+                }
+            );
+        }
 
-		return qo;
+        return qo;
 
-	},
-	build: function (query) {
-		var queryString = '',
-			separator = '?';
+    },
+    build: function (query, startSeparator) {
+        var queryString = '',
+        	separator = typeof startSeparator === 'undefined' ? '?' : startSeparator;
 
-		for (var key in query) {
-			var value = query[key];
+        for (var key in query) {
+            var value = query[key];
 
-			if (value) {
-				queryString += separator + key + '=' + value;
+            if (value) {
+                queryString += separator + key + '=' + value;
 
-				if(separator === '?') {
-					separator = '&';
-				}
-			}
-		}
+                if(separator !== '&') {
+                    separator = '&';
+                }
+            }
+        }
 
-		return queryString;
-	}
+        return queryString;
+    }
 };
 
 QueryString.parse('http://www.domain.com?a=1&b=2&c=3'); // => {a: '1', b: '2', c: '3'}
 QueryString.build({a: '1', b: '2', c: '3'}) // => '?a=1&b=2&c=3'
+QueryString.build({a: '1', b: '2', c: '3', '&'}) // => '&a=1&b=2&c=3'
+QueryString.build({a: '1', b: '2', c: '3', ''}) // => 'a=1&b=2&c=3'
 
 ```
