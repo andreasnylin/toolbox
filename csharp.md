@@ -154,3 +154,11 @@ b.split(4);
 var startYear = 2000;
 Enumerable.Range(startYear, DateTime.Now.Year - startYear + 1).Reverse();
 ```
+
+## Check that a string does not contain certain characters
+```cs
+Regex rx = new Regex("^((?![aoueiy]).)*$");
+Console.WriteLine(rx.IsMatch("abc")); // => False
+Console.WriteLine(rx.IsMatch("def")); // => False
+Console.WriteLine(rx.IsMatch("jkl")); // => True
+```
