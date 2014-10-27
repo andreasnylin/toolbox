@@ -79,3 +79,16 @@ ol li:before {
   content: counters(listitem, '.') '.';
 }
 ```
+
+## Box sizing border-box to all elements
+
+```css
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
