@@ -377,5 +377,31 @@ QueryString.parse('http://www.domain.com?a=1&b=2&c=3'); // => {a: '1', b: '2', c
 QueryString.build({a: '1', b: '2', c: '3'}) // => '?a=1&b=2&c=3'
 QueryString.build({a: '1', b: '2', c: '3', '&'}) // => '&a=1&b=2&c=3'
 QueryString.build({a: '1', b: '2', c: '3', ''}) // => 'a=1&b=2&c=3'
-
 ```
+
+## Simple string templating
+```javascript
+function simpleTemplate(template, data) {
+	var output = template,
+		l = '{{',
+		r = '}}',
+		find,
+		regexp;
+
+	for(var key in data) {
+		console.log(data);
+		if(data.hasOwnProperty(key)) {
+			find = l + key + r;
+			regexp = new RegExp(find, 'g');
+			output = output.replace(regexp, data[key]);
+		}
+	}
+
+	return output;
+}
+	
+var template = '<b>Number of {{animal}} are {{count}}</b>';
+simpleTemplate(template, { animal: 'cats', count: 3 }); // => "<b>Number of cats are 3</b>"
+simpleTemplate(template, { animal: 'dogs', count: 5 }); // => "<b>Number of dogs are 5</b>"
+```
+
