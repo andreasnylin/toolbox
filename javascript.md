@@ -389,7 +389,6 @@ function simpleTemplate(template, data) {
 		regexp;
 
 	for(var key in data) {
-		console.log(data);
 		if(data.hasOwnProperty(key)) {
 			find = l + key + r;
 			regexp = new RegExp(find, 'g');
