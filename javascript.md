@@ -112,7 +112,19 @@ Array(5).join('x');
 ## Generate random number function
 
 ```javascript
-// Generate random number</span>
+// Generate random number
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// usage: generateRandomNumbers( how many numbers to generate, from value, to value )
+randomNumber(50, 100);
+```
+
+## Generate random numbers function
+
+```javascript
+// Generate random number
 function generateRandomNumbers(count, from, to) {
     var nums = [],
         seed = to - from + 1,
@@ -129,6 +141,11 @@ function generateRandomNumbers(count, from, to) {
 generateRandomNumbers(10, 100, 200);
 
 ```
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 
 ## Array traversing helper methods
 
