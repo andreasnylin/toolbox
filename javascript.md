@@ -142,11 +142,6 @@ generateRandomNumbers(10, 100, 200);
 
 ```
 
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-
 ## Array traversing helper methods
 
 ```javascript
