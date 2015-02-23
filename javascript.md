@@ -307,6 +307,33 @@ new Date(year, month, 0).getDate();
 // => 31
 ```
 
+## Day name helper
+```javascript
+var weekDay = function() {
+  var names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+               'Thursday', 'Friday', 'Saturday'];
+  return {
+    name: function(number) { return names[number]; },
+    number: function(name) { return names.indexOf(name); }
+  };
+}();
+```
+
+## Month name helper
+```javascript
+var month = function(){
+  var names = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return {
+    name: function(index) {
+      return names[index];
+    },
+    number: function(name) {
+      return names.indexOf(name);
+    }
+  }
+}();
+```
+
 ## Sort array of dates
 ```javascript
 var arr = [ 
