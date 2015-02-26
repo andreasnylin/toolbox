@@ -142,7 +142,7 @@ generateRandomNumbers(10, 100, 200);
 
 ```
 
-## Array traversing helper methods
+## Array helper methods
 
 ```javascript
 Array.prototype.skip = function(count) {
@@ -182,6 +182,30 @@ Array.prototype.last = function(count) {
 	return length ? this[length - 1] : this;
 };
 
+Array.prototype.equals = function (array) {
+    // if the other array is a falsy value, return
+    if (!array)
+        return false;
+
+    // compare lengths - can save a lot of time 
+    if (this.length != array.length)
+        return false;
+
+    for (var i = 0, l=this.length; i < l; i++) {
+        // Check if we have nested arrays
+        if (this[i] instanceof Array && array[i] instanceof Array) {
+            // recurse into the nested arrays
+            if (!this[i].equals(array[i]))
+                return false;       
+        }           
+        else if (this[i] != array[i]) { 
+            // Warning - two different object instances will never be equal: {x:20} != {x:20}
+            return false;   
+        }           
+    }       
+    return true;
+}
+
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 console.log(arr.first());
@@ -191,6 +215,9 @@ console.log(arr.last());
 console.log(arr.take(3));
 
 console.log(arr.skip(3));
+
+console.log(arr.equals([1, 2, 3])); // => false
+console.log(arr.equals(arr)); // => true
 ```
 
 ## Useful regular expressions
