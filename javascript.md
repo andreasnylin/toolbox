@@ -109,37 +109,38 @@ Array(5).join('x');
 // => result: xxxxx
 ```
 
-## Generate random number function
+## Generate random numbers functions
 
 ```javascript
-// Generate random number
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function random(min, max) {
+  return min + Math.random() * (max - min); 
 }
 
-// usage: generateRandomNumbers( how many numbers to generate, from value, to value )
-randomNumber(50, 100);
-```
-
-## Generate random numbers function
-
-```javascript
-// Generate random number
-function generateRandomNumbers(count, from, to) {
-    var nums = [],
-        seed = to - from + 1,
-            min = from;
-
-    while (count--) {
-        nums.push(Math.floor(Math.random() * seed + min))
-    }
-
-    return nums;
+function randomInt(min, max) {
+  return Math.floor(min + Math.random() * (max - min + 1));
 }
 
-// usage: generateRandomNumbers( how many numbers to generate, from value, to value )
-generateRandomNumbers(10, 100, 200);
+function randomRange(count, min, max) {
+  var range = [];
+  for(var i  = count; i > 0; i--) {
+  	range.push(random(min, max));
+	}
+  return range;
+}
 
+function randomIntRange(count, min, max) {
+  var range = [];
+  for(var i  = count; i > 0; i--) {
+  	range.push(randomInt(min, max));
+	}
+  return range;
+}
+
+// usage: 
+// random(50, 100); // => 50.0 - 100.0
+// randomInt(50, 100); // => 50 - 100
+// randomRange(10, 50, 100); // => Array with 10 decimal values
+// randomIntRange(10, 50, 100); // => Array with 10 int values
 ```
 
 ## Array helper methods
