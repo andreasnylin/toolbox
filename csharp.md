@@ -162,3 +162,31 @@ Console.WriteLine(rx.IsMatch("abc")); // => False
 Console.WriteLine(rx.IsMatch("def")); // => False
 Console.WriteLine(rx.IsMatch("jkl")); // => True
 ```
+
+## String helper
+```cs
+public static class StringHelper
+{
+	public static string FirstNotNullOrWhiteSpace(params string[] values)
+	{
+		return values.FirstOrDefault(value => !string.IsNullOrWhiteSpace(value));
+	}
+	
+	public static string Shorten(string text, int maxLength, string suffix = null)
+	{
+		if(string.IsNullOrWhiteSpace(text) || text.Length <= maxLength)
+			return text;
+			
+		var length = suffix != null ? maxLength - suffix.Length : maxLength;
+		
+		if(suffix != null)
+		{
+			return text.Substring(0, length) + suffix;
+		}
+		else
+		{
+			return text.Substring(0, length);
+		}
+	}
+}
+```
