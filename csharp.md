@@ -190,3 +190,19 @@ public static class StringHelper
 	}
 }
 ```
+## Format bytes
+```cs
+public string FormatBytes(long bytes)
+{
+	const int scale = 1024;
+	var orders = new[] { "GB", "MB", "kB", "Bytes" };
+	var max = (long)Math.Pow(scale, orders.Length - 1);
+	foreach (var order in orders)
+	{
+		if (bytes > max)
+			return string.Format("{0:##.##} {1}", Decimal.Divide(bytes, max), order);
+		max /= scale;
+	}
+	return "0 Bytes";
+}
+```
