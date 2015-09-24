@@ -3,10 +3,13 @@
 ```css
 @function light-or-dark($color) {
 	@if (lightness($color) > 50) {
-		@return #000000; // Lighter backgorund, return dark color
+		@return #000;
 	}
 	@else {
-		@return #ffffff; // Darker background, return light color
+		@return #fff;
 	}
 }
+
+$color = light-or-dark(#fff); 
+/* => #000 */
 ```
