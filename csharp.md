@@ -304,8 +304,10 @@ cssClasses.Remove("banana");
 cssClasses.Remove(new List<string>() { "peach", "plum" });
 cssClasses.AddIf(true, "kiwi");
 cssClasses.AddIf(true, "lemon", "lime");
-// result => "apple pear lemon kiwi"
 cssClasses.HasClass("lemon");
+cssClasses.RenderList();
+// result => "apple pear lemon kiwi"
+cssClasses.RenderClassAttribute();
 // result => class="apple pear lemon kiwi"
 
 ```
