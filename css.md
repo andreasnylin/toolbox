@@ -107,6 +107,18 @@ html {
 	padding-top: 100%;
 }
 
+.ar-box-4-3:before {
+    padding-top: 75%;
+}
+
+.ar-box-2-1:before {
+    padding-top: 50%;
+}
+
+.ar-box-1-2:before {
+    padding-top: 200%;
+}
+
 .ar-box-content {
 	position: absolute;
 	top: 0;
