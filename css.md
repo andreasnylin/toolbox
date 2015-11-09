@@ -92,3 +92,44 @@ html {
   box-sizing: inherit;
 }
 ```
+
+## Aspect ratio box
+
+```css
+.ar-box {
+	position: relative;
+	width: 100%;
+}
+
+.ar-box:before {
+	content: '';
+	display: block;
+	padding-top: 100%;
+}
+
+.ar-box-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+```
+
+## Center box
+
+```css
+.c-box {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.c-box-content {
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+```
