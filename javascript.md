@@ -483,12 +483,9 @@ function radiansToDegrees(radians) {
     return (radians * 180) / Math.PI;
 }
 
-// Convert radians to degrees
+// Get scale based on width or height
 function getScale(width, height, maxWidth, maxHeight) {
-	Math.min( 
-		maxWidth / width, 
-		maxHeight / height 
-	);
+	return Math.min(maxWidth / width, maxHeight / height);
 }
 ```
 
