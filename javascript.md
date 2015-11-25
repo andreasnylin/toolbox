@@ -471,7 +471,7 @@ simpleTemplate(template, { animal: 'cats', count: 3 }); // => "<b>Number of cats
 simpleTemplate(template, { animal: 'dogs', count: 5 }); // => "<b>Number of dogs are 5</b>"
 ```
 
-## Trigonometry, circles, etc
+## Math, Trigonometry, circles, etc
 ```javascript
 // Convert degrees to radians
 function degreesToRadians(degrees) {
@@ -481,6 +481,14 @@ function degreesToRadians(degrees) {
 // Convert radians to degrees
 function radiansToDegrees(radians) {
     return (radians * 180) / Math.PI;
+}
+
+// Convert radians to degrees
+function getScale(width, height, maxWidth, maxHeight) {
+	Math.min( 
+		maxWidth / width, 
+		maxHeight / height 
+	);
 }
 ```
 
