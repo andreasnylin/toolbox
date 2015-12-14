@@ -145,3 +145,18 @@ html {
 	vertical-align: middle;
 }
 ```
+
+## Center element based on content width
+
+```css
+/* Centers the element based on the widts of the contents */
+.center-content {
+    width: intrinsic; /* For Safari, see https://developer.mozilla.org/en-US/docs/CSS/width */
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+```
