@@ -488,4 +488,27 @@ function getScale(width, height, maxWidth, maxHeight) {
 	return Math.min(maxWidth / width, maxHeight / height);
 }
 ```
+## Copy to clipboard
+```javascript
+function copyToClipboard(text) {
+  var textarea = document.createElement('textarea'),
+      successful = false;
+  
+  textarea.value = text;
+  textarea.style.position = 'absolute';
+  textarea.style.opacity = 0;
+  document.body.appendChild(textarea);
+  textarea.select();
 
+  try {
+    successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+  } catch (err) {
+    successful = false;
+  }
+  
+  document.body.removeChild(textarea);
+  
+  return successful;
+}
+```
