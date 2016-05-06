@@ -512,3 +512,19 @@ function copyToClipboard(text) {
   return successful;
 }
 ```
+
+## Format number
+```javascript
+function formatNumber(num, n, x, s, c) {
+	if(typeof num !== "number") {
+		num = Number(num);
+	}
+
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+	    num = num.toFixed(Math.max(0, ~~n));
+
+	return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+}
+
+formatNumber(12345.56789, 2, 3, ',', '.')
+```
