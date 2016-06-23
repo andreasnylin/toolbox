@@ -311,3 +311,92 @@ cssClasses.RenderClassAttribute();
 // result => class="apple pear lemon kiwi"
 
 ```
+
+## CSS Class Helper
+```cs
+public static class QueryStringHelper
+{
+	public static string AddQueryValue(string url, string key, object value)
+	{
+		var urlParts = url.Split('?');
+
+		if (urlParts.Length != 2)
+		{
+			return url;
+		}
+
+		var path = urlParts[0];
+		var query = urlParts[1];
+		var queryCollection = HttpUtility.ParseQueryString(query);
+
+		queryCollection[key] = value.ToString();
+
+		url = string.Concat(path, "?", queryCollection.ToString());
+
+		return url;
+	}
+
+	public static string AddQueryValues(string url, NameValueCollection values)
+	{
+		var urlParts = url.Split('?');
+
+		if (urlParts.Length != 2)
+		{
+			return url;
+		}
+
+		var path = urlParts[0];
+		var query = urlParts[1];
+		var queryCollection = HttpUtility.ParseQueryString(query);
+
+		queryCollection.Add(values);
+
+		url = string.Concat(path, "?", queryCollection.ToString());
+
+		return url;
+	}
+
+	public static string RemoveQueryValue(string url, string key)
+	{
+		var urlParts = url.Split('?');
+
+		if (urlParts.Length != 2)
+		{
+			return url;
+		}
+
+		var path = urlParts[0];
+		var query = urlParts[1];
+		var queryCollection = HttpUtility.ParseQueryString(query);
+
+		queryCollection.Remove(key);
+
+		url = string.Concat(path, "?", queryCollection.ToString());
+
+		return url;
+	}
+
+	public static string RemoveQueryValues(string url, params string[] keys)
+	{
+		var urlParts = url.Split('?');
+
+		if (urlParts.Length != 2)
+		{
+			return url;
+		}
+
+		var path = urlParts[0];
+		var query = urlParts[1];
+		var queryCollection = HttpUtility.ParseQueryString(query);
+
+		foreach (var key in keys)
+		{
+			queryCollection.Remove(key);
+		}
+
+		url = string.Concat(path, "?", queryCollection.ToString());
+
+		return url;
+	}
+}
+```
