@@ -312,7 +312,7 @@ cssClasses.RenderClassAttribute();
 
 ```
 
-## CSS Class Helper
+## Query String Helper
 ```cs
 public static class QueryStringHelper
 {
@@ -398,5 +398,20 @@ public static class QueryStringHelper
 
 		return url;
 	}
+}
+```
+
+## Replace paragraphs with br
+
+```cs
+public string ReplaceParagraphsWithBr(this string text)
+{
+	if (text.IndexOf("<p>", StringComparison.Ordinal) == 0)
+		text = text.Substring(3);
+
+	text = text.Replace("</p>", "");
+	text = text.Replace("<p>", "<br/>");
+
+	return text;
 }
 ```
