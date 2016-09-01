@@ -243,6 +243,9 @@ text = text.replace(exp, '<a href="$1" target="_blank">$1</a>');
 var regex = /(<([^>]+)>)/ig;
 var html = '<p>Test</p>';
 document.write(html.replace(regex, ''));
+
+// Validate hex color
+/^#?([a-f0-9]{6}|[a-f0-9]{3})$/.test('#ccc');
 ```
 
 ## Capitalize first letter in sentance
