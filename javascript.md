@@ -531,3 +531,13 @@ function formatNumber(num, n, x, s, c) {
 
 formatNumber(12345.56789, 2, 3, ',', '.')
 ```
+
+## Round decimals
+```javascript
+function roundDecimals(value, places) {
+    var multiplier = Math.pow(10, places);
+    return (Math.round(value * multiplier) / multiplier);
+}
+// roundDecimals(100, 2) => 100
+// roundDecimals(100.1234, 2) => 100.12
+```
