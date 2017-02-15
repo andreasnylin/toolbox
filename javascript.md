@@ -405,6 +405,38 @@ ary = ["IL0 Foo", "PI0 Bar", "IL10 Baz", "IL3 Bob says hello"]
 ary.sort(natcmp)
 ```
 
+## Get the first N values from an array
+```
+var arr = [1, 2, 3, 4, 5];
+arr.slice(0,2)
+// => [1, 2]
+```
+
+## Get the last N values from an array
+```
+var arr = [1, 2, 3, 4, 5];
+arr.slice(arr.length - 2)
+// => [4, 5]
+```
+
+## Get every even value from an array
+```
+var arr = [1, 2, 3, 4, 5];
+arr.filter(function(value, index) {
+    return index % 2 === 0;
+});
+// => [ 1, 3, 5 ];
+```
+
+## Get every odd value from an array
+```
+var arr = [1, 2, 3, 4, 5];
+arr.filter(function(value, index) {
+    return (index + 1) % 2 === 0;
+});
+// => [ 2, 4 ];
+```
+
 ## Parse and build querystring
 ```javascript
 var QueryString = {
