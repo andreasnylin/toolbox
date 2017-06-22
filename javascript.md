@@ -573,3 +573,26 @@ function roundDecimals(value, places) {
 // roundDecimals(100, 2) => 100
 // roundDecimals(100.1234, 2) => 100.12
 ```
+
+## WaitForIt
+function waitForIt(fn, condition, interval, maxCalls, context) {
+  
+  interval = interval || 1000;
+  context = context || this;
+  maxCalls = maxCalls || Infinity;
+  
+  var calls = 0;
+  
+  function testCondition(){
+    if(calls < maxCalls && condition()) {
+      fn.call(context)
+    }
+    else if(calls < maxCalls) {
+      setTimeout(testCondition, interval);
+    }
+    calls++;
+  }
+  
+  testCondition();
+  
+};
