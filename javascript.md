@@ -575,6 +575,7 @@ function roundDecimals(value, places) {
 ```
 
 ## WaitForIt
+```javascript
 function waitForIt(fn, condition, interval, maxCalls, context) {
   
   interval = interval || 1000;
@@ -596,3 +597,4 @@ function waitForIt(fn, condition, interval, maxCalls, context) {
   testCondition();
   
 };
+```
